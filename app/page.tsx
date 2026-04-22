@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SlideProgress from "./components/SlideProgress";
@@ -113,6 +114,24 @@ export default function Home() {
                 style={{ background: `rgba(${theme.accentRgb},0.1)`, border: `1px solid rgba(${theme.accentRgb},0.25)`, color: theme.accent }}
               >
                 <span style={{ fontSize: 10 }}>✦</span> Vibe-coded presentations
+              </div>
+              {/* Logo mark */}
+              <div
+                className="mb-4 flex h-20 w-20 items-center justify-center rounded-2xl"
+                style={{
+                  background: `linear-gradient(145deg, rgba(${theme.accentRgb},0.15) 0%, rgba(255,255,255,0.04) 100%)`,
+                  border: `1px solid rgba(${theme.accentRgb},0.3)`,
+                  boxShadow: `0 0 40px rgba(${theme.accentRgb},0.2), inset 0 1px 0 rgba(255,255,255,0.08)`,
+                }}
+              >
+                <Image
+                  src="/decksmith-logo-mark.png"
+                  alt="Decksmith logo"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 object-contain"
+                  priority
+                />
               </div>
               <h1
                 className="text-6xl font-extrabold tracking-tight mb-3"

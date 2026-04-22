@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ReactNode, useEffect } from "react";
 import { PRESENTATION } from "../config";
 import { getTheme } from "../lib/themes";
@@ -75,19 +76,24 @@ function BrandLogo({ accent, light }: { accent: string; light: boolean }) {
 
   return (
     <div className="flex items-center gap-2.5">
-      {logoStyle === "asterisk" && (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <line x1="10" y1="1" x2="10" y2="19" stroke={accent} strokeWidth="2" strokeLinecap="round" />
-          <line x1="1" y1="10" x2="19" y2="10" stroke={accent} strokeWidth="2" strokeLinecap="round" />
-          <line x1="3.2" y1="3.2" x2="16.8" y2="16.8" stroke={accent} strokeWidth="2" strokeLinecap="round" />
-          <line x1="16.8" y1="3.2" x2="3.2" y2="16.8" stroke={accent} strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      )}
-      {logoStyle === "diamond" && (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M10 1L19 10L10 19L1 10L10 1Z" stroke={accent} strokeWidth="1.5" fill="none" />
-          <path d="M10 5L15 10L10 15L5 10L10 5Z" fill={accent} opacity="0.5" />
-        </svg>
+      {logoStyle !== "none" && (
+        <div
+          className="flex h-8 w-8 items-center justify-center rounded-lg"
+          style={{
+            background: `linear-gradient(145deg, rgba(${hexToRgb(accent)},0.18) 0%, rgba(255,255,255,0.04) 100%)`,
+            border: `1px solid rgba(${hexToRgb(accent)},0.3)`,
+            boxShadow: `0 0 14px rgba(${hexToRgb(accent)},0.25)`,
+          }}
+        >
+          <Image
+            src="/decksmith-logo-mark.png"
+            alt="Decksmith logo"
+            width={20}
+            height={20}
+            className="h-5 w-5 object-contain"
+            priority
+          />
+        </div>
       )}
       <span
         className="text-sm font-bold tracking-[0.2em] uppercase"

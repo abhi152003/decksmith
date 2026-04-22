@@ -28,7 +28,7 @@ I'll need a few details to get started:
 4. How long is the talk? (This sets the slide count — roughly 1–2 min per slide.)
 5. Do you have a brand or visual style in mind?
    - Specific colors or a hex code?
-   - A logo or icon preference (asterisk ✳ / diamond ◇ / none)?
+   - A logo or icon preference (decksmith / diamond ◇ / none)?
    - Or should I suggest themes based on your topic?
 6. Do you already have slides or content somewhere?
    - Drop a PDF, PPTX, or any text file into the `slides/` directory and tell me — I'll read it and use it as the source of truth.

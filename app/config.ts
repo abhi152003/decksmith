@@ -6,11 +6,11 @@
 export const PRESENTATION = {
   brand: {
     /** Shown in the header on every slide */
-    name: "Your Brand",
+    name: "Decksmith",
     /** Primary accent color — overrides the theme's default accent if set */
     accentColor: null as string | null,
-    /** Header logo shape: "asterisk" | "diamond" | "none" */
-    logoStyle: "asterisk" as "asterisk" | "diamond" | "none",
+    /** Header logo shape: "decksmith" | "diamond" | "none" */
+    logoStyle: "decksmith" as "decksmith" | "diamond" | "none",
   },
 
   /**
