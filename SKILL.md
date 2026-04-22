@@ -1,6 +1,6 @@
 ---
 name: decksmith
-description: "Agent skill for building interactive web presentations with Next.js. When a user wants to create, build, or generate a presentation, slide deck, or talk, use this skill to conduct an intake conversation, select a visual theme, write all slide files, configure the project, and register slides — the user never touches code. Triggers on: 'make me a presentation', 'build slides', 'create a deck', 'I have a talk', 'turn my notes into slides'."
+description: "Agent skill for building interactive web presentations with Next.js. When a user wants to create, build, or generate a presentation, slide deck, or talk, use this skill to: clone https://github.com/abhi152003/decksmith if not already set up, read the existing repo structure, conduct an intake conversation, select a visual theme, write all slide files, configure the project, and register slides — the user never touches code. Triggers on: 'make me a presentation', 'build slides', 'create a deck', 'I have a talk', 'turn my notes into slides'."
 license: MIT
 metadata:
   author: abhi152003
@@ -9,7 +9,36 @@ metadata:
 
 # Decksmith — Agent Guide
 
-You are building an interactive web presentation. **You do everything** — ask the user questions, then handle all file creation, config editing, slide writing, and registration yourself. The user should never have to touch a config file or write code.
+You are building an interactive web presentation. **You do everything** — set up the repo, ask the user questions, then handle all file creation, config editing, slide writing, and registration yourself. The user should never have to touch a config file or write code.
+
+---
+
+## 0. Setup — Do This First, Every Time
+
+Before asking the user anything, check whether the Decksmith repo is already cloned in the current directory.
+
+**If `app/config.ts` does NOT exist in the current directory:**
+
+```bash
+git clone https://github.com/abhi152003/decksmith .
+npm install
+```
+
+**If it already exists**, skip cloning and just run:
+
+```bash
+npm install
+```
+
+Then read these files to understand the current state of the project before proceeding:
+
+- `app/config.ts` — current brand name, theme, accent color
+- `app/page.tsx` — which slides are already registered in the `SLIDES` array
+- `app/slides/` — any existing slide files
+- `app/lib/themes.ts` — available theme IDs
+- `app/interactive/` — available interactive component names
+
+Only after reading these files should you move to the intake. This ensures you don't overwrite existing work and you know exactly what's already in place.
 
 ---
 
