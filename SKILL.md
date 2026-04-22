@@ -1,4 +1,10 @@
-
+---
+name: decksmith
+description: "Agent skill for building interactive web presentations with Next.js. When a user wants to create, build, or generate a presentation, slide deck, or talk, use this skill to conduct an intake conversation, select a visual theme, write all slide files, configure the project, and register slides — the user never touches code. Triggers on: 'make me a presentation', 'build slides', 'create a deck', 'I have a talk', 'turn my notes into slides'."
+license: MIT
+metadata:
+  author: abhi152003
+  version: "1.0.0"
 ---
 
 # Decksmith — Agent Guide
@@ -241,29 +247,29 @@ Use at most **2–3 interactive components per full deck**.
 
 ## 8. Anti-Patterns — Never Do These
 
-- ❌ Gradient text on body copy
-- ❌ More than 4 bullet points on one slide — use `StepThrough` or split
-- ❌ Placeholder or lorem ipsum content
-- ❌ Centering everything — left-align body content for rhythm
-- ❌ Shadows on dark backgrounds — use `box-shadow: 0 0 20px rgba(var(--accent-rgb),0.15)` (glow) instead
-- ❌ Animating every element — max 2–3 per slide
-- ❌ Filler slides ("Agenda", "Thank You") unless they carry real content
-- ❌ Using every interactive component — pick 2–3 for the whole deck
-- ❌ White text on `var(--accent)` backgrounds — accent is bright, always use `color: "#0c0c0c"`
+- No gradient text on body copy
+- No more than 4 bullet points on one slide — use `StepThrough` or split
+- No placeholder or lorem ipsum content
+- No centering everything — left-align body content for rhythm
+- No shadows on dark backgrounds — use `box-shadow: 0 0 20px rgba(var(--accent-rgb),0.15)` (glow) instead
+- No animating every element — max 2–3 per slide
+- No filler slides ("Agenda", "Thank You") unless they carry real content
+- No using every interactive component — pick 2–3 for the whole deck
+- No white text on `var(--accent)` backgrounds — accent is bright, always use `color: "#0c0c0c"`
 
 ---
 
-## 9. File Conventions (for reference — you handle all of this)
+## 9. File Conventions
 
 ```
 app/
   slides/
     Slide01_Title.tsx          ← zero-padded, PascalCase topic name
     Slide02_TheProblem.tsx
-  interactive/                 ← components (don't modify these)
+  interactive/                 ← pre-built components (don't modify)
   components/                  ← SlideLayout, CodeBlock, NavArrows, SlideProgress
-  config.ts                    ← you edit this after intake
-  page.tsx                     ← you add imports and SLIDES array here
+  config.ts                    ← edit after intake
+  page.tsx                     ← add imports and SLIDES array here
 ```
 
 Every slide: default export, `<SlideLayout>` at root.
@@ -279,12 +285,12 @@ const SLIDES = [Slide01, Slide02];
 
 ## 10. Pre-Flight Checklist
 
-Run these before telling the user they're done:
+Before telling the user they're done:
 
-- [ ] `npm run build` passes with 0 TypeScript errors
-- [ ] Navigate every slide — no blank screens, no overflow
-- [ ] At least one slide uses an interactive component
-- [ ] Slide count matches the talk length (1–2 min per slide)
-- [ ] `app/config.ts` has real brand name and correct theme
-- [ ] No placeholder text anywhere
-- [ ] Visually verify at 1280×720 (the slide canvas — it scales down automatically on smaller screens)
+- `npm run build` passes with 0 TypeScript errors
+- Navigate every slide — no blank screens, no overflow
+- At least one slide uses an interactive component
+- Slide count matches the talk length (1–2 min per slide)
+- `app/config.ts` has real brand name and correct theme
+- No placeholder text anywhere
+- Visually verify at 1280×720 (the slide canvas — it scales down automatically on any smaller screen)

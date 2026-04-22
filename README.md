@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Decksmith
 
-## Getting Started
+An agent-driven interactive presentation builder. You describe the talk; your AI agent writes every slide, picks the theme, and wires everything up — you never touch a config file or write code.
 
-First, run the development server:
+Built on Next.js + TypeScript + Framer Motion. Navigate with arrow keys, Space, or swipe.
+
+## Install as a skill
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx skills add abhi152003/decksmith
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once installed, tell your agent: *"Make me a presentation about X"* and it will conduct an intake, propose an outline, and build the full deck.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Manual setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+git clone https://github.com/abhi152003/decksmith
+cd decksmith
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000). The landing page shows the available themes and components. Add slides and it becomes a presentation.
 
-To learn more about Next.js, take a look at the following resources:
+## How it works
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The agent runs a structured intake — topic, audience, goal, length, brand — then:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Proposes a slide outline for your approval
+2. Edits `app/config.ts` (theme + brand name)
+3. Writes each slide as `app/slides/SlideNN_TopicName.tsx`
+4. Registers all slides in `app/page.tsx`
+5. Runs `npm run build` to verify 0 TypeScript errors
 
-## Deploy on Vercel
+You get a working presentation. No config editing, no wiring up imports.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Themes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| ID | Name | Feel |
+|---|---|---|
+| `midnight-operator` | Midnight Operator | High-contrast dark, lime. Tech demos, launches. |
+| `chalk-studio` | Chalk Studio | Warm dark, orange. Startup pitches, design talks. |
+| `crisp-blueprint` | Crisp Blueprint | Clean light, blue. Investor decks, consulting. |
+| `signal` | Signal | Dense dark, amber. Data science, engineering. |
+| `sakura` | Sakura | Light warm, pink. Education, workshops. |
+| `carbon` | Carbon | Grounded dark, emerald. Open source, code reviews. |
+
+## Slide types
+
+`hero` · `concept` · `code` · `demo` · `compare` · `callout` · `summary`
+
+Every slide has one job. If it has two, it gets split.
+
+## Interactive components
+
+Drop any of these into a `demo` slide:
+
+| Component | Use case |
+|---|---|
+| `QuizWidget` | Test one concept |
+| `StepThrough` | Sequential process |
+| `ComparisonTable` | Side-by-side options |
+| `Timeline` | Events over time |
+| `BarChart` | Animated rankings |
+| `StatHighlight` | Animated number counter |
+| `ClickReveal` | Expandable list / FAQs |
+| `FlowDiagram` | Connected nodes / decision trees |
+
+Use 2–3 per deck maximum.
+
+## Stack
+
+- Next.js 15 / React 19
+- TypeScript 5
+- Tailwind CSS 4
+- Framer Motion 12
+- react-syntax-highlighter

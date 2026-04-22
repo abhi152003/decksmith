@@ -32,6 +32,13 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Always show nav arrows on touch devices (no hover available) */
+@media (hover: none) {
+  .slide-nav-arrow {
+    opacity: 0.75 !important;
+  }
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

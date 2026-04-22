@@ -18,10 +18,7 @@ export default function SlideProgress({ current, total, onGoTo }: SlideProgressP
             style={{
               width: i === current ? 20 : 6,
               height: 6,
-              background:
-                i === current
-                  ? "#c9f135"
-                  : "rgba(255,255,255,0.2)",
+              background: i === current ? "var(--accent)" : "rgba(255,255,255,0.2)",
             }}
           />
         ))}
