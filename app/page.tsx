@@ -120,7 +120,7 @@ export default function Home() {
                 className="mb-4 inline-flex items-center gap-2 rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-widest"
                 style={{ background: `rgba(${theme.accentRgb},0.1)`, border: `1px solid rgba(${theme.accentRgb},0.25)`, color: theme.accent }}
               >
-                <span style={{ fontSize: 10 }}>✦</span> Vibe-coded presentations
+                <span style={{ fontSize: 10 }}>✦</span> Describe. Build. Present.
               </div>
               {/* Logo mark */}
               <div
@@ -147,7 +147,7 @@ export default function Home() {
                 Decksmith
               </h1>
               <p className="text-base max-w-md" style={{ color: theme.textSecondary }}>
-                Tell Claude your topic. It builds the whole deck — interactive, branded, ready to present.
+                Describe your talk. Ship a deck.
               </p>
             </div>
 
