@@ -84,7 +84,7 @@ export default function Home() {
   };
 
   const features = [
-    { icon: "✦", label: "8 interactive components", desc: "Quiz, timeline, bar chart, flow diagram, and more — drop any into a slide." },
+    { icon: "✦", label: "8 interactive components", desc: "Quiz, timeline, bar chart, flow diagram, and more. Drop any into a slide." },
     { icon: "◈", label: "6 curated themes", desc: "From high-contrast dark to clean light. Each one designed for a specific audience and mood." },
     { icon: "⟳", label: "Keyboard & touch navigation", desc: "Arrow keys, space, Home/End, and swipe. Works on a laptop or a tablet on stage." },
   ];
@@ -161,9 +161,9 @@ export default function Home() {
                 <p className="text-sm font-semibold mb-3" style={{ color: theme.text }}>Get started</p>
                 <ol className="flex flex-col gap-2.5 list-none mb-4">
                   {[
-                    "Open Claude Code in this directory",
+                    "Open your AI agent (Claude Code, Codex, Cursor, etc.) in this directory",
                     "Describe your topic, audience, and talk length",
-                    "Claude asks a few questions, then builds everything",
+                    "Your agent asks a few questions, then builds everything",
                   ].map((step, i) => (
                     <li key={i} className="flex items-start gap-3 text-xs" style={{ color: theme.textSecondary }}>
                       <span
